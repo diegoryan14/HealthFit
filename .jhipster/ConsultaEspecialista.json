@@ -1,0 +1,36 @@
+{
+  "annotations": {
+    "changelogDate": "20240414042646"
+  },
+  "applications": ["HealthFit"],
+  "fields": [
+    {
+      "fieldName": "tipoEspecialista",
+      "fieldType": "TipoEspecialista",
+      "fieldValues": "MEDICO,PSICOLOGO,NUTRICIONISTA,PERSONAL_TRAINER,OUTRO"
+    },
+    {
+      "fieldName": "dataHorarioConsulta",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "statusConsulta",
+      "fieldType": "StatusConsulta",
+      "fieldValues": "CONFIRMADA,CANCELADA,ADIADA,OUTRO"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "ConsultaEspecialista",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "relationshipName": "internalUser",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipWithBuiltInEntity": true
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

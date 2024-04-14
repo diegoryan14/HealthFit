@@ -1,0 +1,31 @@
+{
+  "annotations": {
+    "changelogDate": "20240414041946"
+  },
+  "applications": ["HealthFit"],
+  "fields": [
+    {
+      "fieldName": "plano",
+      "fieldType": "TipoPlano",
+      "fieldValues": "GRATUITO,BRONZE,PRATA,OURO"
+    },
+    {
+      "fieldName": "dataRegistro",
+      "fieldType": "Instant"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Usuario",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "relationshipName": "internalUser",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one",
+      "relationshipWithBuiltInEntity": true
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

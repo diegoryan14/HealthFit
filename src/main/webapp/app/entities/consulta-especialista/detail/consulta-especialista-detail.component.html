@@ -1,0 +1,61 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (consultaEspecialista()) {
+      <div>
+        <h2 data-cy="consultaEspecialistaDetailsHeading">
+          <span appTranslate="healthFitApp.consultaEspecialista.detail.title">Consulta Especialista</span>
+        </h2>
+
+        <hr />
+
+        <app-alert-error></app-alert-error>
+
+        <app-alert></app-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span appTranslate="global.field.id">Código</span></dt>
+          <dd>
+            <span>{{ consultaEspecialista()!.id }}</span>
+          </dd>
+          <dt><span appTranslate="healthFitApp.consultaEspecialista.tipoEspecialista">Tipo Especialista</span></dt>
+          <dd>
+            <span [appTranslate]="'healthFitApp.TipoEspecialista.' + (consultaEspecialista()!.tipoEspecialista ?? 'null')">{{
+              {
+                null: '',
+                MEDICO: 'MEDICO',
+                PSICOLOGO: 'PSICOLOGO',
+                NUTRICIONISTA: 'NUTRICIONISTA',
+                PERSONAL_TRAINER: 'PERSONAL_TRAINER',
+                OUTRO: 'OUTRO'
+              }[consultaEspecialista()!.tipoEspecialista ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span appTranslate="healthFitApp.consultaEspecialista.dataHorarioConsulta">Data Horario Consulta</span></dt>
+          <dd>
+            <span>{{ consultaEspecialista()!.dataHorarioConsulta | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span appTranslate="healthFitApp.consultaEspecialista.statusConsulta">Status Consulta</span></dt>
+          <dd>
+            <span [appTranslate]="'healthFitApp.StatusConsulta.' + (consultaEspecialista()!.statusConsulta ?? 'null')">{{
+              { null: '', CONFIRMADA: 'CONFIRMADA', CANCELADA: 'CANCELADA', ADIADA: 'ADIADA', OUTRO: 'OUTRO' }[
+                consultaEspecialista()!.statusConsulta ?? 'null'
+              ]
+            }}</span>
+          </dd>
+          <dt><span appTranslate="healthFitApp.consultaEspecialista.internalUser">Internal User</span></dt>
+          <dd>
+            <span>{{ consultaEspecialista()!.internalUser?.id }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span appTranslate="entity.action.back">Voltar</span>
+        </button>
+
+        <button type="button" [routerLink]="['/consulta-especialista', consultaEspecialista()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span appTranslate="entity.action.edit">Editar</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

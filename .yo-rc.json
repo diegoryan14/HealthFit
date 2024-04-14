@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "applicationIndex": 0,
+    "applicationType": "monolith",
+    "authenticationType": "jwt",
+    "baseName": "HealthFit",
+    "buildTool": "gradle",
+    "cacheProvider": "caffeine",
+    "clientFramework": "angular",
+    "clientPackageManager": "npm",
+    "clientTheme": "flatly",
+    "creationTimestamp": 1713071108977,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "devServerPort": 4200,
+    "dtoSuffix": "Dto",
+    "enableHibernateCache": true,
+    "enableTranslation": true,
+    "entities": [
+      "Usuario",
+      "AtividadeFisica",
+      "Dieta",
+      "QualidadeSono",
+      "ControleMedicamentos",
+      "MetasSaude",
+      "Anuncio",
+      "ConsultaEspecialista"
+    ],
+    "jhiPrefix": "app",
+    "jhipsterVersion": "8.3.0",
+    "jwtSecretKey": "N2FiY2YzZGRjY2Q3NGZiNDA3ODZiOTE1MzQwNTJjYWI3MDAzZDgyNzlmZDZkNzY5YzUzNTZlMWQxNTlhZDlhNThmMDVkOGI5MjcxMGFmNjM3OTg2MzAyN2UzMDUxMzU5OGRmZjU2M2M1NTJiZDk1YWE5Nzk2MWJkODEzYWVlYmE=",
+    "languages": ["pt-br", "en", "es"],
+    "lastLiquibaseTimestamp": 1713068806000,
+    "nativeLanguage": "pt-br",
+    "packageFolder": "com/mycompany/myapp",
+    "packageName": "com.mycompany.myapp",
+    "prodDatabaseType": "mysql"
+  }
+}

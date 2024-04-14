@@ -1,0 +1,15 @@
+export enum TipoAtividade {
+  CORRIDA = 'CORRIDA',
+
+  FUTEBOL = 'FUTEBOL',
+
+  VOLEI = 'VOLEI',
+
+  BASQUETE = 'BASQUETE',
+
+  CAMINHADA = 'CAMINHADA',
+
+  ACADEMIA = 'ACADEMIA',
+
+  OUTRO = 'OUTRO',
+}

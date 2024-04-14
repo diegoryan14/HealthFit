@@ -1,0 +1,35 @@
+{
+  "annotations": {
+    "changelogDate": "20240414042446"
+  },
+  "applications": ["HealthFit"],
+  "fields": [
+    {
+      "fieldName": "tipoMeta",
+      "fieldType": "TipoMeta",
+      "fieldValues": "PERDA_DE_PESO,GANHO_DE_MASSA_MUSCULAR,OUTRO"
+    },
+    {
+      "fieldName": "valorMeta",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dataLimite",
+      "fieldType": "Instant"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "MetasSaude",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "relationshipName": "internalUser",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipWithBuiltInEntity": true
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

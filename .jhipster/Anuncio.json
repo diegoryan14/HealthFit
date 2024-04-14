@@ -1,0 +1,30 @@
+{
+  "annotations": {
+    "changelogDate": "20240414042546"
+  },
+  "applications": ["HealthFit"],
+  "fields": [
+    {
+      "fieldName": "titulo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descricao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataPublicacao",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "preco",
+      "fieldType": "Double"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Anuncio",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

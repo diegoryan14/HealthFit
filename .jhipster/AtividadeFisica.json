@@ -1,0 +1,39 @@
+{
+  "annotations": {
+    "changelogDate": "20240414042046"
+  },
+  "applications": ["HealthFit"],
+  "fields": [
+    {
+      "fieldName": "tipoAtividade",
+      "fieldType": "TipoAtividade",
+      "fieldValues": "CORRIDA,FUTEBOL,VOLEI,BASQUETE,CAMINHADA,ACADEMIA,OUTRO"
+    },
+    {
+      "fieldName": "dataHorario",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "duracao",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "passosCalorias",
+      "fieldType": "Integer"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "AtividadeFisica",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "relationshipName": "internalUser",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipWithBuiltInEntity": true
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}
