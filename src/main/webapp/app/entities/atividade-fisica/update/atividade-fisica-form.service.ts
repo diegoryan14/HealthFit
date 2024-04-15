@@ -56,10 +56,22 @@ export class AtividadeFisicaFormService {
         },
       ),
       tipoAtividade: new FormControl(atividadeFisicaRawValue.tipoAtividade),
-      dataHorario: new FormControl(atividadeFisicaRawValue.dataHorario),
-      duracao: new FormControl(atividadeFisicaRawValue.duracao),
-      passosCalorias: new FormControl(atividadeFisicaRawValue.passosCalorias),
-      internalUser: new FormControl(atividadeFisicaRawValue.internalUser),
+      dataHorario: new FormControl(atividadeFisicaRawValue.dataHorario, {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
+      duracao: new FormControl(atividadeFisicaRawValue.duracao, {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
+      passosCalorias: new FormControl(atividadeFisicaRawValue.passosCalorias, {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
+      internalUser: new FormControl(atividadeFisicaRawValue.internalUser, {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
     });
   }
 

@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal, OnDestroy } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -13,6 +13,10 @@ import { TipoAtividade } from 'app/entities/enumerations/tipo-atividade.model';
 import { AtividadeFisicaService } from '../service/atividade-fisica.service';
 import { IAtividadeFisica } from '../atividade-fisica.model';
 import { AtividadeFisicaFormService, AtividadeFisicaFormGroup } from './atividade-fisica-form.service';
+import { AccountService } from 'app/core/auth/account.service';
+import { Account } from 'app/core/auth/account.model';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -20,17 +24,22 @@ import { AtividadeFisicaFormService, AtividadeFisicaFormGroup } from './atividad
   templateUrl: './atividade-fisica-update.component.html',
   imports: [SharedModule, FormsModule, ReactiveFormsModule],
 })
-export class AtividadeFisicaUpdateComponent implements OnInit {
+export class AtividadeFisicaUpdateComponent implements OnInit, OnDestroy {
   isSaving = false;
   atividadeFisica: IAtividadeFisica | null = null;
   tipoAtividadeValues = Object.keys(TipoAtividade);
+  account = signal<Account | null>(null);
 
   usersSharedCollection: IUser[] = [];
+
+  userLog: number = 0;
 
   protected atividadeFisicaService = inject(AtividadeFisicaService);
   protected atividadeFisicaFormService = inject(AtividadeFisicaFormService);
   protected userService = inject(UserService);
   protected activatedRoute = inject(ActivatedRoute);
+  private accountService = inject(AccountService);
+  private readonly destroy$ = new Subject<void>();
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   editForm: AtividadeFisicaFormGroup = this.atividadeFisicaFormService.createAtividadeFisicaFormGroup();
@@ -46,6 +55,16 @@ export class AtividadeFisicaUpdateComponent implements OnInit {
 
       this.loadRelationshipsOptions();
     });
+
+    this.accountService
+      .getAuthenticationState()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(account => (this.userLog = account?.id as number));
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   previousState(): void {
@@ -54,6 +73,7 @@ export class AtividadeFisicaUpdateComponent implements OnInit {
 
   save(): void {
     this.isSaving = true;
+    console.log(this.editForm);
     const atividadeFisica = this.atividadeFisicaFormService.getAtividadeFisica(this.editForm);
     if (atividadeFisica.id !== null) {
       this.subscribeToSaveResponse(this.atividadeFisicaService.update(atividadeFisica));

@@ -1,24 +1,16 @@
 <div class="d-flex justify-content-center">
-  <div class="col-8">
+  <div class="col-lg-6 col-md-8 col-sm-10" style="max-width: 400px">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h2
-        id="app-controle-medicamentos-heading"
-        data-cy="ControleMedicamentosCreateUpdateHeading"
-        appTranslate="healthFitApp.controleMedicamentos.home.createOrEditLabel"
-      >
-        Criar ou editar Controle Medicamentos
-      </h2>
-
-      <div>
-        <app-alert-error></app-alert-error>
-
+      <h3 class="text-center" id="app-controle-medicamentos-heading" data-cy="ControleMedicamentosCreateUpdateHeading" appTranslate="">
+        Cadastrar Medicamento
+      </h3>
+      <div style="margin-top: 15px">
         @if (editForm.controls.id.value !== null) {
           <div class="mb-3">
             <label class="form-label" for="field_id" appTranslate="healthFitApp.controleMedicamentos.id">ID</label>
             <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
           </div>
         }
-
         <div class="mb-3">
           <label class="form-label" for="field_nomeMedicamento" appTranslate="healthFitApp.controleMedicamentos.nomeMedicamento"
             >Nome Medicamento</label
@@ -32,12 +24,10 @@
             formControlName="nomeMedicamento"
           />
         </div>
-
         <div class="mb-3">
           <label class="form-label" for="field_dosagem" appTranslate="healthFitApp.controleMedicamentos.dosagem">Dosagem</label>
           <input type="text" class="form-control" name="dosagem" id="field_dosagem" data-cy="dosagem" formControlName="dosagem" />
         </div>
-
         <div class="mb-3">
           <label class="form-label" for="field_horarioIngestao" appTranslate="healthFitApp.controleMedicamentos.horarioIngestao"
             >Horario Ingestao</label
@@ -54,42 +44,33 @@
             />
           </div>
         </div>
-
-        <div class="mb-3">
-          <label class="form-label" for="field_internalUser" appTranslate="healthFitApp.controleMedicamentos.internalUser"
-            >Internal User</label
-          >
-          <select
-            class="form-control"
-            id="field_internalUser"
-            data-cy="internalUser"
-            name="internalUser"
-            formControlName="internalUser"
-            [compareWith]="compareUser"
+        <!-- <div class="mb-3">
+          <label class="form-label" for="field_internalUser" appTranslate="healthFitApp.controleMedicamentos.internalUser">Internal User</label>
+          <select class="form-control" id="field_internalUser" data-cy="internalUser" name="internalUser" formControlName="internalUser" [compareWith]="compareUser"
           >
             <option [ngValue]="null"></option>
             @for (userOption of usersSharedCollection; track $index) {
               <option [ngValue]="userOption">{{ userOption.id }}</option>
             }
           </select>
-        </div>
+        </div> -->
       </div>
-
-      <div>
-        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+      <div style="margin-top: 15px; margin-bottom: 15px">
+        <!-- <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
           <fa-icon icon="ban"></fa-icon>&nbsp;<span appTranslate="entity.action.cancel">Cancelar</span>
-        </button>
-
+        </button> -->
         <button
+          style="width: 100%"
           type="submit"
           id="save-entity"
           data-cy="entityCreateSaveButton"
           [disabled]="editForm.invalid || isSaving"
           class="btn btn-primary"
         >
-          <fa-icon icon="save"></fa-icon>&nbsp;<span appTranslate="entity.action.save">Salvar</span>
+          <fa-icon icon="save"></fa-icon>&nbsp;<span style="margin-left: 10px" appTranslate="">Cadastrar</span>
         </button>
       </div>
+      <app-alert-error></app-alert-error>
     </form>
   </div>
 </div>

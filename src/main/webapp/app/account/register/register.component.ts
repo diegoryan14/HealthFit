@@ -1,6 +1,6 @@
 import { Component, AfterViewInit, ElementRef, inject, ViewChild, signal } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -51,6 +51,7 @@ export default class RegisterComponent implements AfterViewInit {
 
   private translateService = inject(TranslateService);
   private registerService = inject(RegisterService);
+  private router = inject(Router);
 
   ngAfterViewInit(): void {
     if (this.login) {
@@ -71,8 +72,13 @@ export default class RegisterComponent implements AfterViewInit {
       const { login, email } = this.registerForm.getRawValue();
       this.registerService
         .save({ login, email, password, langKey: this.translateService.currentLang })
-        .subscribe({ next: () => this.success.set(true), error: response => this.processError(response) });
+        .subscribe({ next: () => this.registerOk(), error: response => this.processError(response) });
     }
+  }
+
+  registerOk(): void {
+    this.success.set(true);
+    this.router.navigate(['/login']);
   }
 
   private processError(response: HttpErrorResponse): void {

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { finalize, map } from 'rxjs/operators';
 
 import SharedModule from 'app/shared/shared.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IUser } from 'app/entities/user/user.model';
 import { UserService } from 'app/entities/user/service/user.service';
@@ -41,7 +41,6 @@ export class ControleMedicamentosUpdateComponent implements OnInit {
       if (controleMedicamentos) {
         this.updateForm(controleMedicamentos);
       }
-
       this.loadRelationshipsOptions();
     });
   }

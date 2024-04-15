@@ -56,10 +56,22 @@ export class ControleMedicamentosFormService {
           validators: [Validators.required],
         },
       ),
-      nomeMedicamento: new FormControl(controleMedicamentosRawValue.nomeMedicamento),
-      dosagem: new FormControl(controleMedicamentosRawValue.dosagem),
-      horarioIngestao: new FormControl(controleMedicamentosRawValue.horarioIngestao),
-      internalUser: new FormControl(controleMedicamentosRawValue.internalUser),
+      nomeMedicamento: new FormControl(controleMedicamentosRawValue.nomeMedicamento, {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
+      dosagem: new FormControl(controleMedicamentosRawValue.dosagem, {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
+      horarioIngestao: new FormControl(controleMedicamentosRawValue.horarioIngestao, {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
+      internalUser: new FormControl(controleMedicamentosRawValue.internalUser, {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
     });
   }
 
