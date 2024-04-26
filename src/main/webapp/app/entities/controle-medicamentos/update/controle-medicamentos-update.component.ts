@@ -12,6 +12,7 @@ import { UserService } from 'app/entities/user/service/user.service';
 import { IControleMedicamentos } from '../controle-medicamentos.model';
 import { ControleMedicamentosService } from '../service/controle-medicamentos.service';
 import { ControleMedicamentosFormService, ControleMedicamentosFormGroup } from './controle-medicamentos-form.service';
+import { AccountService } from 'app/core/auth/account.service';
 
 @Component({
   standalone: true,
@@ -22,6 +23,7 @@ import { ControleMedicamentosFormService, ControleMedicamentosFormGroup } from '
 export class ControleMedicamentosUpdateComponent implements OnInit {
   isSaving = false;
   controleMedicamentos: IControleMedicamentos | null = null;
+  userLogado: number = 0;
 
   usersSharedCollection: IUser[] = [];
 
@@ -35,6 +37,8 @@ export class ControleMedicamentosUpdateComponent implements OnInit {
 
   compareUser = (o1: IUser | null, o2: IUser | null): boolean => this.userService.compareUser(o1, o2);
 
+  constructor(private accountService: AccountService) {}
+
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ controleMedicamentos }) => {
       this.controleMedicamentos = controleMedicamentos;
@@ -43,6 +47,22 @@ export class ControleMedicamentosUpdateComponent implements OnInit {
       }
       this.loadRelationshipsOptions();
     });
+    this.getCurrentUser();
+  }
+
+  getCurrentUser() {
+    return this.accountService.identity().subscribe(
+      user => {
+        if (user) {
+          this.editForm.patchValue({ internalUser: { id: user?.id || 0 } });
+        } else {
+          this.editForm.value.internalUser = null;
+        }
+      },
+      error => {
+        console.error('There was an error fetching the user details', error);
+      },
+    );
   }
 
   previousState(): void {

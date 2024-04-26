@@ -22,11 +22,20 @@
             id="field_nomeMedicamento"
             data-cy="nomeMedicamento"
             formControlName="nomeMedicamento"
+            placeholder="Nome medicamento"
           />
         </div>
         <div class="mb-3">
-          <label class="form-label" for="field_dosagem" appTranslate="healthFitApp.controleMedicamentos.dosagem">Dosagem</label>
-          <input type="text" class="form-control" name="dosagem" id="field_dosagem" data-cy="dosagem" formControlName="dosagem" />
+          <label class="form-label" for="field_dosagem" appTranslate="healthFitApp.controleMedicamentos.dosagem">Dosagem (mg)</label>
+          <input
+            type="text"
+            class="form-control"
+            name="dosagem"
+            id="field_dosagem"
+            data-cy="dosagem"
+            placeholder="Dosagem medicamento"
+            formControlName="dosagem"
+          />
         </div>
         <div class="mb-3">
           <label class="form-label" for="field_horarioIngestao" appTranslate="healthFitApp.controleMedicamentos.horarioIngestao"
@@ -40,11 +49,11 @@
               class="form-control"
               name="horarioIngestao"
               formControlName="horarioIngestao"
-              placeholder="YYYY-MM-DD HH:mm"
+              placeholder="DD/MM/YYYY HH:mm"
             />
           </div>
         </div>
-        <!-- <div class="mb-3">
+        <!-- <div class="mb-3" style="display: none;">
           <label class="form-label" for="field_internalUser" appTranslate="healthFitApp.controleMedicamentos.internalUser">Internal User</label>
           <select class="form-control" id="field_internalUser" data-cy="internalUser" name="internalUser" formControlName="internalUser" [compareWith]="compareUser"
           >
@@ -61,7 +70,7 @@
         </button> -->
         <button
           style="width: 100%"
-          type="submit"
+          type="button"
           id="save-entity"
           data-cy="entityCreateSaveButton"
           [disabled]="editForm.invalid || isSaving"

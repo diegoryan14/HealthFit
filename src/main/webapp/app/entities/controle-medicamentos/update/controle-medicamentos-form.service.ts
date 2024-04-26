@@ -70,7 +70,7 @@ export class ControleMedicamentosFormService {
       }),
       internalUser: new FormControl(controleMedicamentosRawValue.internalUser, {
         nonNullable: true,
-        validators: [Validators.required],
+        //validators: [Validators.required],
       }),
     });
   }
