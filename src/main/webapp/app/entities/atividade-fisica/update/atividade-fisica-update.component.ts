@@ -55,7 +55,7 @@ export class AtividadeFisicaUpdateComponent implements OnInit, OnDestroy {
 
       this.loadRelationshipsOptions();
     });
-
+    this.getCurrentUser();
     this.accountService
       .getAuthenticationState()
       .pipe(takeUntil(this.destroy$))
@@ -65,6 +65,21 @@ export class AtividadeFisicaUpdateComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+  getCurrentUser() {
+    return this.accountService.identity().subscribe(
+      user => {
+        if (user) {
+          this.editForm.patchValue({ internalUser: { id: user?.id || 0 } });
+        } else {
+          this.editForm.value.internalUser = null;
+        }
+      },
+      error => {
+        console.error('There was an error fetching the user details', error);
+      },
+    );
   }
 
   previousState(): void {

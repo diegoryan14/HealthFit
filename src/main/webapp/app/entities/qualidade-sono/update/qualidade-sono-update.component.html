@@ -1,26 +1,19 @@
 <div class="d-flex justify-content-center">
-  <div class="col-8">
+  <div class="col-lg-6 col-md-8 col-sm-10" style="max-width: 400px">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h2
-        id="app-qualidade-sono-heading"
-        data-cy="QualidadeSonoCreateUpdateHeading"
-        appTranslate="healthFitApp.qualidadeSono.home.createOrEditLabel"
-      >
-        Criar ou editar Qualidade Sono
-      </h2>
-
+      <h4 class="text-center" id="app-qualidade-sono-heading" data-cy="QualidadeSonoCreateUpdateHeading" style="font-weight: bold">
+        Registrar Horas de Sono
+      </h4>
       <div>
         <app-alert-error></app-alert-error>
-
         @if (editForm.controls.id.value !== null) {
           <div class="mb-3">
             <label class="form-label" for="field_id" appTranslate="healthFitApp.qualidadeSono.id">ID</label>
             <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
           </div>
         }
-
         <div class="mb-3">
-          <label class="form-label" for="field_data" appTranslate="healthFitApp.qualidadeSono.data">Data</label>
+          <label class="form-label" for="field_data" style="font-weight: bold">Data</label>
           <div class="d-flex">
             <input
               id="field_data"
@@ -29,17 +22,17 @@
               class="form-control"
               name="data"
               formControlName="data"
-              placeholder="YYYY-MM-DD HH:mm"
+              placeholder="DD/MM/YYYY"
             />
           </div>
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="field_horasSono" appTranslate="healthFitApp.qualidadeSono.horasSono">Horas Sono</label>
+          <label class="form-label" for="field_horasSono" style="font-weight: bold">Horas Sono</label>
           <input type="number" class="form-control" name="horasSono" id="field_horasSono" data-cy="horasSono" formControlName="horasSono" />
         </div>
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <label class="form-label" for="field_internalUser" appTranslate="healthFitApp.qualidadeSono.internalUser">Internal User</label>
           <select
             class="form-control"
@@ -54,22 +47,18 @@
               <option [ngValue]="userOption">{{ userOption.id }}</option>
             }
           </select>
-        </div>
+        </div> -->
       </div>
-
       <div>
-        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
-          <fa-icon icon="ban"></fa-icon>&nbsp;<span appTranslate="entity.action.cancel">Cancelar</span>
-        </button>
-
         <button
           type="submit"
           id="save-entity"
           data-cy="entityCreateSaveButton"
           [disabled]="editForm.invalid || isSaving"
-          class="btn btn-primary"
+          class="btn"
+          style="width: 100%; background-color: #708090; color: white"
         >
-          <fa-icon icon="save"></fa-icon>&nbsp;<span appTranslate="entity.action.save">Salvar</span>
+          <span style="font-weight: bold">Registrar</span>
         </button>
       </div>
     </form>

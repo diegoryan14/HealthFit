@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center">
   <div class="col-lg-6 col-md-8 col-sm-10" style="max-width: 400px">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h4 class="text-center" id="app-atividade-fisica-heading" data-cy="AtividadeFisicaCreateUpdateHeading" appTranslate="">
+      <h4 class="text-center" style="font-weight: bold" id="app-atividade-fisica-heading" data-cy="AtividadeFisicaCreateUpdateHeading">
         Cadastrar Atividade Fisica
       </h4>
       <div>
@@ -13,9 +13,7 @@
           </div>
         }
         <div class="mb-3">
-          <label class="form-label" for="field_tipoAtividade" appTranslate="healthFitApp.atividadeFisica.tipoAtividade"
-            >Tipo Atividade</label
-          >
+          <label class="form-label" for="field_tipoAtividade" style="font-weight: bold">Tipo de Atividade</label>
           <select
             class="form-control"
             name="tipoAtividade"
@@ -31,7 +29,7 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="field_dataHorario" appTranslate="healthFitApp.atividadeFisica.dataHorario">Data Horario</label>
+          <label class="form-label" for="field_dataHorario" style="font-weight: bold">Dia e Horário</label>
           <div class="d-flex">
             <input
               id="field_dataHorario"
@@ -46,14 +44,12 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="field_duracao" appTranslate="healthFitApp.atividadeFisica.duracao">Duracao</label>
+          <label class="form-label" for="field_duracao" style="font-weight: bold">Duração da Atividade (Horas)</label>
           <input type="number" class="form-control" name="duracao" id="field_duracao" data-cy="duracao" formControlName="duracao" />
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="field_passosCalorias" appTranslate="healthFitApp.atividadeFisica.passosCalorias"
-            >Passos Calorias</label
-          >
+          <label class="form-label" for="field_passosCalorias" style="font-weight: bold">Calorias Queimadas (Cal)</label>
           <input
             type="number"
             class="form-control"
@@ -64,7 +60,7 @@
           />
         </div>
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <label class="form-label" for="field_internalUser" appTranslate="healthFitApp.atividadeFisica.internalUser">Internal User</label>
           <select
             class="form-control"
@@ -79,7 +75,7 @@
               <option [ngValue]="userOption">{{ userOption.id }}</option>
             }
           </select>
-        </div>
+        </div> -->
       </div>
 
       <div>
@@ -87,14 +83,15 @@
           <fa-icon icon="ban"></fa-icon>&nbsp;<span appTranslate="entity.action.cancel">Cancelar</span>
         </button> -->
         <button
-          style="width: 100%"
+          style="width: 100%; background-color: #708090; color: white"
+          (click)="save()"
           type="submit"
           id="save-entity"
           data-cy="entityCreateSaveButton"
           [disabled]="editForm.invalid || isSaving"
-          class="btn btn-primary"
+          class="btn"
         >
-          <fa-icon icon="save"></fa-icon>&nbsp;<span style="margin-left: 1px" appTranslate="">Cadastrar</span>
+          <span style="font-weight: bold">Cadastrar</span>
         </button>
       </div>
     </form>

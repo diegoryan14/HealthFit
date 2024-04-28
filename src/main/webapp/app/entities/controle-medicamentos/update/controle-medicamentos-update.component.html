@@ -1,9 +1,14 @@
 <div class="d-flex justify-content-center">
   <div class="col-lg-6 col-md-8 col-sm-10" style="max-width: 400px">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h3 class="text-center" id="app-controle-medicamentos-heading" data-cy="ControleMedicamentosCreateUpdateHeading" appTranslate="">
+      <h4
+        class="text-center"
+        style="font-weight: bold"
+        id="app-controle-medicamentos-heading"
+        data-cy="ControleMedicamentosCreateUpdateHeading"
+      >
         Cadastrar Medicamento
-      </h3>
+      </h4>
       <div style="margin-top: 15px">
         @if (editForm.controls.id.value !== null) {
           <div class="mb-3">
@@ -12,9 +17,7 @@
           </div>
         }
         <div class="mb-3">
-          <label class="form-label" for="field_nomeMedicamento" appTranslate="healthFitApp.controleMedicamentos.nomeMedicamento"
-            >Nome Medicamento</label
-          >
+          <label class="form-label" style="font-weight: bold" for="field_nomeMedicamento">Nome do Medicamento</label>
           <input
             type="text"
             class="form-control"
@@ -26,7 +29,7 @@
           />
         </div>
         <div class="mb-3">
-          <label class="form-label" for="field_dosagem" appTranslate="healthFitApp.controleMedicamentos.dosagem">Dosagem (mg)</label>
+          <label class="form-label" style="font-weight: bold" for="field_dosagem">Dosagem (mg)</label>
           <input
             type="text"
             class="form-control"
@@ -38,9 +41,7 @@
           />
         </div>
         <div class="mb-3">
-          <label class="form-label" for="field_horarioIngestao" appTranslate="healthFitApp.controleMedicamentos.horarioIngestao"
-            >Horario Ingestao</label
-          >
+          <label class="form-label" style="font-weight: bold" for="field_horarioIngestao">Horário de Ingestão</label>
           <div class="d-flex">
             <input
               id="field_horarioIngestao"
@@ -65,9 +66,6 @@
         </div> -->
       </div>
       <div style="margin-top: 15px; margin-bottom: 15px">
-        <!-- <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
-          <fa-icon icon="ban"></fa-icon>&nbsp;<span appTranslate="entity.action.cancel">Cancelar</span>
-        </button> -->
         <button
           style="width: 100%"
           type="button"
@@ -75,8 +73,9 @@
           data-cy="entityCreateSaveButton"
           [disabled]="editForm.invalid || isSaving"
           class="btn btn-primary"
+          (click)="save()"
         >
-          <fa-icon icon="save"></fa-icon>&nbsp;<span style="margin-left: 10px" appTranslate="">Cadastrar</span>
+          <span style="font-weight: bold">Cadastrar</span>
         </button>
       </div>
       <app-alert-error></app-alert-error>

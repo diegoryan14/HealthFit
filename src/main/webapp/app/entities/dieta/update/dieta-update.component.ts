@@ -12,6 +12,7 @@ import { UserService } from 'app/entities/user/service/user.service';
 import { IDieta } from '../dieta.model';
 import { DietaService } from '../service/dieta.service';
 import { DietaFormService, DietaFormGroup } from './dieta-form.service';
+import { AccountService } from 'app/core/auth/account.service';
 
 @Component({
   standalone: true,
@@ -35,6 +36,8 @@ export class DietaUpdateComponent implements OnInit {
 
   compareUser = (o1: IUser | null, o2: IUser | null): boolean => this.userService.compareUser(o1, o2);
 
+  constructor(private accountService: AccountService) {}
+
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ dieta }) => {
       this.dieta = dieta;
@@ -44,10 +47,35 @@ export class DietaUpdateComponent implements OnInit {
 
       this.loadRelationshipsOptions();
     });
+    this.getCurrentUser();
+  }
+
+  getCurrentUser() {
+    return this.accountService.identity().subscribe(
+      user => {
+        if (user) {
+          this.editForm.patchValue({ internalUser: { id: user?.id || 0 } });
+        } else {
+          this.editForm.value.internalUser = null;
+        }
+      },
+      error => {
+        console.error('There was an error fetching the user details', error);
+      },
+    );
   }
 
   previousState(): void {
     window.history.back();
+  }
+
+  LimparCampos(): void {
+    this.editForm.reset({
+      caloriasConsumidas: null,
+      dataHorarioRefeicao: '',
+      descricaoRefeicao: '',
+      internalUser: null,
+    });
   }
 
   save(): void {

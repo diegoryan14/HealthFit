@@ -1,10 +1,9 @@
 <div class="d-flex justify-content-center">
-  <div class="col-8">
+  <div class="col-lg-6 col-md-8 col-sm-10" style="max-width: 400px">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h2 id="app-dieta-heading" data-cy="DietaCreateUpdateHeading" appTranslate="healthFitApp.dieta.home.createOrEditLabel">
-        Criar ou editar Dieta
-      </h2>
-
+      <h4 class="text-center" style="font-weight: bold" id="app-dieta-heading" data-cy="DietaCreateUpdateHeading" appTranslate="">
+        Registrar Alimentos Consumidos
+      </h4>
       <div>
         <app-alert-error></app-alert-error>
 
@@ -16,9 +15,7 @@
         }
 
         <div class="mb-3">
-          <label class="form-label" for="field_descricaoRefeicao" appTranslate="healthFitApp.dieta.descricaoRefeicao"
-            >Descricao Refeicao</label
-          >
+          <label class="form-label" style="font-weight: bold" for="field_descricaoRefeicao">Nome da Alimentação</label>
           <input
             type="text"
             class="form-control"
@@ -30,9 +27,7 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="field_dataHorarioRefeicao" appTranslate="healthFitApp.dieta.dataHorarioRefeicao"
-            >Data Horario Refeicao</label
-          >
+          <label class="form-label" style="font-weight: bold" for="field_dataHorarioRefeicao">Dia e Horário da Alimentação</label>
           <div class="d-flex">
             <input
               id="field_dataHorarioRefeicao"
@@ -41,15 +36,13 @@
               class="form-control"
               name="dataHorarioRefeicao"
               formControlName="dataHorarioRefeicao"
-              placeholder="YYYY-MM-DD HH:mm"
+              placeholder="DD/MM/YYYY HH:mm"
             />
           </div>
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="field_caloriasConsumidas" appTranslate="healthFitApp.dieta.caloriasConsumidas"
-            >Calorias Consumidas</label
-          >
+          <label class="form-label" style="font-weight: bold" for="field_caloriasConsumidas">Total de Calorias Consumidas</label>
           <input
             type="number"
             class="form-control"
@@ -59,38 +52,23 @@
             formControlName="caloriasConsumidas"
           />
         </div>
-
-        <div class="mb-3">
-          <label class="form-label" for="field_internalUser" appTranslate="healthFitApp.dieta.internalUser">Internal User</label>
-          <select
-            class="form-control"
-            id="field_internalUser"
-            data-cy="internalUser"
-            name="internalUser"
-            formControlName="internalUser"
-            [compareWith]="compareUser"
-          >
-            <option [ngValue]="null"></option>
-            @for (userOption of usersSharedCollection; track $index) {
-              <option [ngValue]="userOption">{{ userOption.id }}</option>
-            }
-          </select>
-        </div>
       </div>
-
-      <div>
-        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
-          <fa-icon icon="ban"></fa-icon>&nbsp;<span appTranslate="entity.action.cancel">Cancelar</span>
+      <!-- <div class="" style="width: 100%; margin-bottom: 10px;">
+        <button type="button" style="width: 100%;" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="LimparCampos()">
+          <span>Limpar campos</span>
         </button>
-
+      </div> -->
+      <div>
         <button
           type="submit"
+          (click)="save()"
           id="save-entity"
           data-cy="entityCreateSaveButton"
           [disabled]="editForm.invalid || isSaving"
-          class="btn btn-primary"
+          class="btn"
+          style="width: 100%; background-color: #708090; color: white"
         >
-          <fa-icon icon="save"></fa-icon>&nbsp;<span appTranslate="entity.action.save">Salvar</span>
+          <span style="font-weight: bold">Registrar</span>
         </button>
       </div>
     </form>

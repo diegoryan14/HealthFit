@@ -62,11 +62,11 @@ export class AtividadeFisicaFormService {
       }),
       duracao: new FormControl(atividadeFisicaRawValue.duracao, {
         nonNullable: true,
-        validators: [Validators.required],
+        validators: [Validators.required, Validators.minLength(1), Validators.maxLength(3)],
       }),
       passosCalorias: new FormControl(atividadeFisicaRawValue.passosCalorias, {
         nonNullable: true,
-        validators: [Validators.required],
+        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(6)],
       }),
       internalUser: new FormControl(atividadeFisicaRawValue.internalUser, {
         nonNullable: true,

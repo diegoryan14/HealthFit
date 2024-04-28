@@ -53,8 +53,14 @@ export class QualidadeSonoFormService {
           validators: [Validators.required],
         },
       ),
-      data: new FormControl(qualidadeSonoRawValue.data),
-      horasSono: new FormControl(qualidadeSonoRawValue.horasSono),
+      data: new FormControl(qualidadeSonoRawValue.data, {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
+      horasSono: new FormControl(qualidadeSonoRawValue.horasSono, {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
       internalUser: new FormControl(qualidadeSonoRawValue.internalUser),
     });
   }

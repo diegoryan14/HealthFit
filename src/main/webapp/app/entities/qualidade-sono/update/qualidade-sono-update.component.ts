@@ -12,6 +12,7 @@ import { UserService } from 'app/entities/user/service/user.service';
 import { IQualidadeSono } from '../qualidade-sono.model';
 import { QualidadeSonoService } from '../service/qualidade-sono.service';
 import { QualidadeSonoFormService, QualidadeSonoFormGroup } from './qualidade-sono-form.service';
+import { AccountService } from 'app/core/auth/account.service';
 
 @Component({
   standalone: true,
@@ -35,6 +36,8 @@ export class QualidadeSonoUpdateComponent implements OnInit {
 
   compareUser = (o1: IUser | null, o2: IUser | null): boolean => this.userService.compareUser(o1, o2);
 
+  constructor(private accountService: AccountService) {}
+
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ qualidadeSono }) => {
       this.qualidadeSono = qualidadeSono;
@@ -44,6 +47,22 @@ export class QualidadeSonoUpdateComponent implements OnInit {
 
       this.loadRelationshipsOptions();
     });
+    this.getCurrentUser();
+  }
+
+  getCurrentUser() {
+    return this.accountService.identity().subscribe(
+      user => {
+        if (user) {
+          this.editForm.patchValue({ internalUser: { id: user?.id || 0 } });
+        } else {
+          this.editForm.value.internalUser = null;
+        }
+      },
+      error => {
+        console.error('There was an error fetching the user details', error);
+      },
+    );
   }
 
   previousState(): void {
