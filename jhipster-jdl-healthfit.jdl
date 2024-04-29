@@ -70,6 +70,11 @@ entity ConsultaEspecialista {
     statusConsulta StatusConsulta
 }
 
+entity ConsumoAgua {
+    dataConsumo Instant,
+    quantidadeMl Integer
+}
+
 enum TipoPlano {
     GRATUITO, BRONZE, PRATA, OURO
 }
@@ -100,7 +105,8 @@ relationship ManyToOne {
     QualidadeSono{internalUser} to User with builtInEntity,
     ControleMedicamentos{internalUser} to User with builtInEntity,
     MetasSaude{internalUser} to User with builtInEntity,
-    ConsultaEspecialista{internalUser} to User with builtInEntity
+    ConsultaEspecialista{internalUser} to User with builtInEntity,
+    ConsumoAgua{internalUser} to User with builtInEntity
 }
 
 paginate all with pagination

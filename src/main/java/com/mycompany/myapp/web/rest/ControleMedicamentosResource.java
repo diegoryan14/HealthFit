@@ -201,4 +201,27 @@ public class ControleMedicamentosResource {
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
     }
+    // /**
+    //  * {@code GET  /controle-medicamentos/user/{userId}} : get all the controleMedicamentos for a specific user.
+    //  *
+    //  * @param userId the ID of the user whose controleMedicamentos to retrieve.
+    //  * @param pageable the pagination information.
+    //  * @param criteria the criteria which the requested entities should match.
+    //  * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of controleMedicamentos in body.
+    //  */
+    // @GetMapping("/user/{userId}")
+    // public ResponseEntity<List<ControleMedicamentos>> getAllControleMedicamentosByUserId(
+    //     @PathVariable Long userId,
+    //     ControleMedicamentosCriteria criteria,
+    //     @org.springdoc.core.annotations.ParameterObject Pageable pageable
+    // ) {
+    //     log.debug("REST request to get ControleMedicamentos by user id: {} and criteria: {}", userId, criteria);
+
+    //     // Assuming the criteria object has a method to set the userId. If not, you may need to modify the criteria class.
+    //     criteria.setUserId(userId);
+
+    //     Page<ControleMedicamentos> page = controleMedicamentosQueryService.findByCriteria(criteria, pageable);
+    //     HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+    //     return ResponseEntity.ok().headers(headers).body(page.getContent());
+    // }
 }

@@ -24,13 +24,14 @@
       "ControleMedicamentos",
       "MetasSaude",
       "Anuncio",
-      "ConsultaEspecialista"
+      "ConsultaEspecialista",
+      "ConsumoAgua"
     ],
     "jhiPrefix": "app",
     "jhipsterVersion": "8.3.0",
     "jwtSecretKey": "N2FiY2YzZGRjY2Q3NGZiNDA3ODZiOTE1MzQwNTJjYWI3MDAzZDgyNzlmZDZkNzY5YzUzNTZlMWQxNTlhZDlhNThmMDVkOGI5MjcxMGFmNjM3OTg2MzAyN2UzMDUxMzU5OGRmZjU2M2M1NTJiZDk1YWE5Nzk2MWJkODEzYWVlYmE=",
     "languages": ["pt-br", "en", "es"],
-    "lastLiquibaseTimestamp": 1713068806000,
+    "lastLiquibaseTimestamp": 1714345751000,
     "nativeLanguage": "pt-br",
     "packageFolder": "com/mycompany/myapp",
     "packageName": "com.mycompany.myapp",

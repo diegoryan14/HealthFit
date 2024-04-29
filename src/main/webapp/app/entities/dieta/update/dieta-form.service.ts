@@ -54,9 +54,18 @@ export class DietaFormService {
           validators: [Validators.required],
         },
       ),
-      descricaoRefeicao: new FormControl(dietaRawValue.descricaoRefeicao),
-      dataHorarioRefeicao: new FormControl(dietaRawValue.dataHorarioRefeicao),
-      caloriasConsumidas: new FormControl(dietaRawValue.caloriasConsumidas),
+      descricaoRefeicao: new FormControl(dietaRawValue.descricaoRefeicao, {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
+      dataHorarioRefeicao: new FormControl(dietaRawValue.dataHorarioRefeicao, {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
+      caloriasConsumidas: new FormControl(dietaRawValue.caloriasConsumidas, {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
       internalUser: new FormControl(dietaRawValue.internalUser),
     });
   }

@@ -83,13 +83,13 @@
           <fa-icon icon="ban"></fa-icon>&nbsp;<span appTranslate="entity.action.cancel">Cancelar</span>
         </button> -->
         <button
-          style="width: 100%; background-color: #708090; color: white"
+          style="width: 100%"
           (click)="save()"
           type="submit"
           id="save-entity"
           data-cy="entityCreateSaveButton"
           [disabled]="editForm.invalid || isSaving"
-          class="btn"
+          class="btn btn-primary"
         >
           <span style="font-weight: bold">Cadastrar</span>
         </button>

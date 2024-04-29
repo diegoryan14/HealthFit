@@ -1,82 +1,175 @@
-<div class="row">
-  <div class="col-md-3">
-    <span class="hipster img-fluid rounded"></span>
-  </div>
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+  crossorigin="anonymous"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<style>
+  /* Estilos gerais */
 
-  <div class="col-md-9">
-    <h1 class="display-4"><span appTranslate="home.title">Bem vindo, Java Hipster!</span> (Health Fit)</h1>
+  /* Estilos para telas menores */
+  @media screen and (max-width: 768px) {
+    #cta .title {
+      font-size: 2rem; /* Reduz o tamanho do título */
+    }
 
-    <p class="lead" appTranslate="home.subtitle">Esta é a página principal</p>
+    #cta .description {
+      font-size: 0.8rem; /* Reduz o tamanho do texto de descrição */
+    }
 
-    <div>
-      @if (account() !== null) {
-        <div class="alert alert-success">
-          @if (account()) {
-            <span id="home-logged-message" appTranslate="home.logged.message" [translateValues]="{ username: account()!.login }"
-              >Você está logado como &quot;{{ account()!.login }}&quot;.</span
-            >
-          }
-        </div>
-      } @else {
-        <div class="alert alert-warning">
-          <span appTranslate="global.messages.info.authenticated.prefix">Se deseja </span>
-          <a class="alert-link" (click)="login()" appTranslate="global.messages.info.authenticated.link">entrar</a
-          ><span appTranslate="global.messages.info.authenticated.suffix"
-            >, utilize as seguintes contas padrões:<br />- Administrador (usuário=&quot;admin&quot; and senha=&quot;admin&quot;) <br />-
-            Usuário (usuário=&quot;user&quot; e senha=&quot;user&quot;).</span
-          >
-        </div>
-
-        <div class="alert alert-warning">
-          <span appTranslate="global.messages.info.register.noaccount">Não possui uma conta ainda?</span>&nbsp;
-          <a class="alert-link" routerLink="/account/register" appTranslate="global.messages.info.register.link">Crie uma nova conta</a>
-        </div>
-      }
+    .feedback-avatar {
+      width: 50px; /* Reduz o tamanho do avatar */
+      height: 50px;
+    }
+  }
+</style>
+<main id="content">
+  <br />
+  <div id="carouselExampleDark" class="carousel carousel-dark slide slide rounded" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#carouselExampleDark"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
-
-    <p appTranslate="home.question">Em caso de dúvida sobre o JHipster:</p>
-
-    <ul>
-      <li>
-        <a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer" appTranslate="home.link.homepage"
-          >Página principal JHipster</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://stackoverflow.com/tags/jhipster/info"
-          target="_blank"
-          rel="noopener noreferrer"
-          appTranslate="home.link.stackoverflow"
-          >JHipster no Stack Overflow</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/jhipster/generator-jhipster/issues?state=open"
-          target="_blank"
-          rel="noopener noreferrer"
-          appTranslate="home.link.bugtracker"
-          >JHipster bug tracker</a
-        >
-      </li>
-      <li>
-        <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer" appTranslate="home.link.chat"
-          >Sala de bate-papo pública JHipster</a
-        >
-      </li>
-      <li>
-        <a href="https://twitter.com/jhipster" target="_blank" rel="noopener noreferrer" appTranslate="home.link.follow"
-          >siga &#64;jhipster no Twitter</a
-        >
-      </li>
-    </ul>
-
-    <p>
-      <span appTranslate="home.like">Se você gosta do JHipster, não se esqueça de avaliar no</span>
-      <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer" appTranslate="home.github"
-        >GitHub</a
-      >!
-    </p>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="5000">
+        <img src="../../content/images/img.jpg" class="d-block w-100" alt="..." />
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+        <img src="../../content/images/img.jpg" class="d-block w-100" alt="..." />
+      </div>
+      <div class="carousel-item">
+        <img src="../../content/images/img.jpg" class="d-block w-100" alt="..." />
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-</div>
+  <section id="home">
+    <div class="shape"></div>
+    <div id="cta">
+      <h1 class="title">
+        <strong>SEJA SEU MELHOR</strong>
+      </h1>
+
+      <p class="description">
+        Astraeus foi fundada em 2001, por uma equipe de marido e mulher, Breno e Denise Silva. Desde então, expandimos para mais de 115
+        lugares em todo o país!
+      </p>
+
+      <div id="cta_buttons">
+        <a href="#" class="btn-default"> Saiba mais </a>
+      </div>
+
+      <div class="social-media-buttons">
+        <a href="">
+          <i class="fab fa-whatsapp"></i>
+          <!-- Corrigido o prefixo para 'fab' -->
+        </a>
+
+        <a href="">
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section id="testimonials">
+    <div id="testimonials_content">
+      <h2 style="margin-top: 15px" class="section-title">Depoimentos</h2>
+      <h3 class="section-subtitle"></h3>
+
+      <div id="feedbacks">
+        <div class="feedback">
+          <img src="../../content/images/jhipster_family_member_0.svg" class="feedback-avatar" alt="" />
+
+          <div class="feedback-content">
+            <p>
+              Fulana de Tal
+              <span>
+                <i class="fas fa-star"></i>
+                <!-- Corrigido o prefixo para 'fas' -->
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+            </p>
+            <p>
+              "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat voluptatibus cumque dolor ea est quae alias
+              necessitatibus"
+            </p>
+          </div>
+        </div>
+
+        <div class="feedback">
+          <img src="../../content/images/jhipster_family_member_0.svg" class="feedback-avatar" alt="" />
+
+          <div class="feedback-content">
+            <p>
+              Fulana de Tal
+              <span>
+                <i class="fas fa-star"></i>
+                <!-- Corrigido o prefixo para 'fas' -->
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+            </p>
+            <p>
+              "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat voluptatibus cumque dolor ea est quae alias
+              necessitatibus"
+            </p>
+          </div>
+        </div>
+
+        <div class="feedback">
+          <img src="../../content/images/jhipster_family_member_0.svg" class="feedback-avatar" alt="" />
+
+          <div class="feedback-content">
+            <p>
+              Fulana de Tal
+              <span>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+            </p>
+            <p>
+              "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat voluptatibus cumque dolor ea est quae alias
+              necessitatibus"
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-default">Ver mais avaliações</button>
+    </div>
+  </section>
+</main>

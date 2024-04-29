@@ -1,39 +1,48 @@
 <div class="d-flex justify-content-center">
   <div class="col-lg-6 col-md-8 col-sm-10" style="max-width: 400px">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h4 class="text-center" id="app-qualidade-sono-heading" data-cy="QualidadeSonoCreateUpdateHeading" style="font-weight: bold">
-        Registrar Horas de Sono
+      <h4 class="text-center" style="font-weight: bold" id="app-consumo-agua-heading" data-cy="ConsumoAguaCreateUpdateHeading">
+        Registrar o consumo de Água
       </h4>
       <div>
         <app-alert-error></app-alert-error>
+
         @if (editForm.controls.id.value !== null) {
           <div class="mb-3">
-            <label class="form-label" for="field_id" appTranslate="healthFitApp.qualidadeSono.id">ID</label>
+            <label class="form-label" for="field_id" appTranslate="healthFitApp.consumoAgua.id">ID</label>
             <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
           </div>
         }
+
         <div class="mb-3">
-          <label class="form-label" for="field_data" style="font-weight: bold">Data</label>
+          <label class="form-label" for="field_dataConsumo" style="font-weight: bold">Data</label>
           <div class="d-flex">
             <input
-              id="field_data"
-              data-cy="data"
+              id="field_dataConsumo"
+              data-cy="dataConsumo"
               type="datetime-local"
               class="form-control"
-              name="data"
-              formControlName="data"
-              placeholder="DD/MM/YYYY"
+              name="dataConsumo"
+              formControlName="dataConsumo"
+              placeholder="DD/MM/YYYY HH:mm"
             />
           </div>
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="field_horasSono" style="font-weight: bold">Horas Sono</label>
-          <input type="number" class="form-control" name="horasSono" id="field_horasSono" data-cy="horasSono" formControlName="horasSono" />
+          <label class="form-label" for="field_quantidadeMl" style="font-weight: bold">Quantidade (ml)</label>
+          <input
+            type="number"
+            class="form-control"
+            name="quantidadeMl"
+            id="field_quantidadeMl"
+            data-cy="quantidadeMl"
+            formControlName="quantidadeMl"
+          />
         </div>
 
         <!-- <div class="mb-3">
-          <label class="form-label" for="field_internalUser" appTranslate="healthFitApp.qualidadeSono.internalUser">Internal User</label>
+          <label class="form-label" for="field_internalUser" appTranslate="healthFitApp.consumoAgua.internalUser">Internal User</label>
           <select
             class="form-control"
             id="field_internalUser"
@@ -49,14 +58,19 @@
           </select>
         </div> -->
       </div>
+
       <div>
+        <!-- <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span appTranslate="entity.action.cancel">Cancelar</span>
+        </button> -->
+
         <button
           type="submit"
           id="save-entity"
           data-cy="entityCreateSaveButton"
           [disabled]="editForm.invalid || isSaving"
-          class="btn btn-primary"
-          style="width: 100%"
+          class="btn"
+          style="width: 100%; background-color: #708090; color: white"
         >
           <span style="font-weight: bold">Registrar</span>
         </button>
