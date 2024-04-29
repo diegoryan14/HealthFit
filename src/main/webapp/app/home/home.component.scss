@@ -16,8 +16,8 @@ Main page styles
   transition: background-color 0.3s ease;
 }
 
-#carouselExampleDark {
-  border-radius: 900px;
+#carrossel {
+  border-radius: 10px;
 }
 
 #home {
@@ -32,6 +32,7 @@ Main page styles
   flex-direction: column;
   gap: 28px;
   margin-top: 5%;
+  font-family: Horta;
 }
 
 #cta .title {
@@ -126,6 +127,7 @@ Main page styles
     align-items: center;
     justify-content: center;
     gap: 48px;
+    font-family: Horta;
   }
 
   #testimonial_chef {

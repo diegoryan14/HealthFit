@@ -1,10 +1,14 @@
-<div>
+<div style="font-family: horta; font-size: 20px; color: rgb(204, 212, 215)">
+  <!-- Exemplo de font -->
+
   <div class="d-flex justify-content-center">
     <div class="col-lg-6 col-md-8 col-sm-10" style="max-width: 400px">
       <div style="text-align: center; margin-bottom: 15px">
         <img src="https://via.placeholder.com/150" alt="Profile Image" class="" style="align-items: center; border-radius: 50%" />
       </div>
-      <h1 class="text-center" data-cy="loginTitle" appTranslate="">Login</h1>
+      <h1 style="font-family: horta; font-size: 50px; color: rgb(204, 212, 215)" class="text-center" data-cy="loginTitle" appTranslate="">
+        LOGIN
+      </h1>
       <form class="form" role="form" (ngSubmit)="login()" [formGroup]="loginForm">
         <div class="mb-3">
           <label class="username-label" for="username" appTranslate="global.form.username.label">Usuário</label>
