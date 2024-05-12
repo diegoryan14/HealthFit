@@ -7,7 +7,7 @@
     {
       "fieldName": "tipoAtividade",
       "fieldType": "TipoAtividade",
-      "fieldValues": "CORRIDA,FUTEBOL,VOLEI,BASQUETE,CAMINHADA,ACADEMIA,OUTRO"
+      "fieldValues": "CORRIDA,FUTEBOL,VOLEI,BASQUETE,CAMINHADA,ACADEMIA,ATIVIDADE_DOMESTICA,OUTRO"
     },
     {
       "fieldName": "dataHorario",

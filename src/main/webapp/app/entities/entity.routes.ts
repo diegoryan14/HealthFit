@@ -46,6 +46,11 @@ const routes: Routes = [
     data: { pageTitle: 'healthFitApp.consultaEspecialista.home.title' },
     loadChildren: () => import('./consulta-especialista/consulta-especialista.routes'),
   },
+  {
+    path: 'consumo-agua',
+    data: { pageTitle: 'healthFitApp.consumoAgua.home.title' },
+    loadChildren: () => import('./consumo-agua/consumo-agua.routes'),
+  },
   /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
 ];
 
